@@ -1,0 +1,37 @@
+# Offspring Face Generator — requirements.txt
+# Inferred from all notebooks and .py files in the repository.
+# TF2/Keras notebooks (DCGAN_V2.ipynb, encoding-keras-2.0.ipynb, Transfer_Learning.ipynb)
+# use TF 2.x; the standalone .py files (model.py, trainer.py, evaler.py) use TF 1.x APIs
+# (tf.placeholder, tf.contrib, tf.train.Supervisor) and require TF 1.x or compat mode.
+
+# Core deep learning
+tensorflow>=2.8.0,<2.13.0       # TF2 for notebooks; use tensorflow==1.15 for .py files
+keras>=2.8.0                    # Used directly in notebooks alongside tf.keras
+
+# Numerical / data
+numpy>=1.21.0
+scipy>=1.7.0
+
+# Image handling
+Pillow>=9.0.0                   # PIL.Image used throughout
+imageio>=2.19.0                 # imageio.imwrite used in evaler.py
+h5py>=3.6.0                     # HDF5 output in evaler.py
+
+# Visualisation
+matplotlib>=3.5.0
+
+# Utilities (used by TF1 .py files)
+six>=1.16.0                     # six.moves.xrange in trainer.py / evaler.py
+
+# Optional: needed for TF1 standalone scripts
+# tensorflow==1.15.0            # Uncomment if running trainer.py / evaler.py directly
+# tensorflow-gpu==1.15.0        # GPU variant for TF1
+
+# Optional: Jupyter environment
+jupyter>=1.0.0
+notebook>=6.4.0
+ipykernel>=6.0.0
+
+# Optional: face preprocessing (not in source, but needed for a full pipeline)
+# opencv-python>=4.6.0
+# dlib>=19.24.0
